@@ -1,0 +1,23 @@
+﻿body {
+    background-image: url("img/Coletivo.jpeg");
+    height: 95vh;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
+
+
+}
+
+.branco {
+    color: white;
+}
+
+label{
+    color: white;
+}
+
+.tamanho {
+    font-size: 25px;
+    color: white;
+}
+

@@ -11,7 +11,7 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        // Toda  em que a página é recarregada eu deixo como null a minha session
+        // Toda  em que a página é recarregada eu deixo como null aaa minha session
         Session["USUARIO"] = null;
         txtEmail.BorderColor = Color.Empty;
         msgErro.Visible = false;
@@ -50,6 +50,7 @@ public partial class Login : System.Web.UI.Page
             //string senha = Funcoes.BaseCodifica(txtSenha.Text);
 
             // crio o texto da minha consulta no banco
+            txtSenha.Text = Funcoes.BaseCodifica(txtSenha.Text);
             string query = "SELECT EMP_ID_EMPRESA, EMP_SENHA, EMP_EMAIL FROM EMP_EMPRESA WHERE EMP_SENHA = '" + txtSenha.Text + "' AND EMP_EMAIL= '" + txtEmail.Text + "';";
             // abrir minha conexao com o banco
             IDbConnection con = MapeamentoBD.Conexao();

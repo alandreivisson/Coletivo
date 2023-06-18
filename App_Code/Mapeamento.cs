@@ -16,6 +16,7 @@ public class MapeamentoBD
     {
         MySqlConnection objConexao = new MySqlConnection(ConfigurationManager.AppSettings["stringConexaoBD"]);
         objConexao.Open();
+
         return objConexao;
     }
 

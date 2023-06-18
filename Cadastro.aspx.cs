@@ -31,7 +31,7 @@ public partial class Cadastro : System.Web.UI.Page
             try {
                 var webserive = new WSCorreios.AtendeClienteClient();
                 var resposta = webserive.consultaCEP(txtCEP.Text);
-
+                
                 if (resposta != null)
                 {
                     txtBairro.Text = resposta.bairro;
@@ -273,7 +273,7 @@ public partial class Cadastro : System.Web.UI.Page
 
     protected void txtRazaoSocial_TextChanged(object sender, EventArgs e)
     {
-        string query = "SELECT EMP_ID_EMPRESA, EMP_SENHA, EMP_EMAIL FROM EMP_EMPRESA WHERE EMP_RAZAO_SOCIAL = '" + txtRazaoSocial.Text + "';";
+        string query = "SELECT EMP_ID, EMP_SENHA, EMP_EMAIL FROM EMP_EMPRESA WHERE EMP_RAZAO_SOCIAL = '" + txtRazaoSocial.Text + "';";
         // abrir minha conexao com o banco
         IDbConnection con = MapeamentoBD.Conexao();
         // aqui eu crio o objeto que vai manipular meus comandos no banco de dados e passo o meu comando, que no caso, está contido na minha string chamada query
@@ -292,7 +292,7 @@ public partial class Cadastro : System.Web.UI.Page
             //Passo um new para empresa, senão o visual não deixa eu manipular meu objeto null
             empresa = new Empresa();
             //Passo os valores das colunas da minha consulta para dentro dos atributos da minha classe
-            empresa.Id = Convert.ToInt32(reader["EMP_ID_EMPRESA"]);
+            empresa.Id = Convert.ToInt32(reader["EMP_ID"]);
             empresa.Senha = reader["EMP_SENHA"].ToString();
             empresa.Email = reader["EMP_EMAIL"].ToString();
         }
@@ -313,7 +313,7 @@ public partial class Cadastro : System.Web.UI.Page
 
     protected void txtCNPJ_TextChanged(object sender, EventArgs e)
     {
-        string query = "SELECT EMP_ID_EMPRESA, EMP_SENHA, EMP_EMAIL FROM EMP_EMPRESA WHERE EMP_CNPJ = '" + txtCNPJ.Text + "';";
+        string query = "SELECT EMP_ID, EMP_SENHA, EMP_EMAIL FROM EMP_EMPRESA WHERE EMP_CNPJ = '" + txtCNPJ.Text + "';";
         // abrir minha conexao com o banco
         IDbConnection con = MapeamentoBD.Conexao();
         // aqui eu crio o objeto que vai manipular meus comandos no banco de dados e passo o meu comando, que no caso, está contido na minha string chamada query
@@ -332,7 +332,7 @@ public partial class Cadastro : System.Web.UI.Page
             //Passo um new para empresa, senão o visual não deixa eu manipular meu objeto null
             empresa = new Empresa();
             //Passo os valores das colunas da minha consulta para dentro dos atributos da minha classe
-            empresa.Id = Convert.ToInt32(reader["EMP_ID_EMPRESA"]);
+            empresa.Id = Convert.ToInt32(reader["EMP_ID"]);
             empresa.Senha = reader["EMP_SENHA"].ToString();
             empresa.Email = reader["EMP_EMAIL"].ToString();
         }
@@ -356,7 +356,7 @@ public partial class Cadastro : System.Web.UI.Page
 
     protected void txtEmail_TextChanged(object sender, EventArgs e)
     {
-        string query = "SELECT EMP_ID_EMPRESA, EMP_SENHA, EMP_EMAIL FROM EMP_EMPRESA WHERE EMP_EMAIL = '" + txtEmail.Text + "';";
+        string query = "SELECT EMP_ID, EMP_SENHA, EMP_EMAIL FROM EMP_EMPRESA WHERE EMP_EMAIL = '" + txtEmail.Text + "';";
         // abrir minha conexao com o banco
         IDbConnection con = MapeamentoBD.Conexao();
         // aqui eu crio o objeto que vai manipular meus comandos no banco de dados e passo o meu comando, que no caso, está contido na minha string chamada query
@@ -375,7 +375,7 @@ public partial class Cadastro : System.Web.UI.Page
             //Passo um new para empresa, senão o visual não deixa eu manipular meu objeto null
             empresa = new Empresa();
             //Passo os valores das colunas da minha consulta para dentro dos atributos da minha classe
-            empresa.Id = Convert.ToInt32(reader["EMP_ID_EMPRESA"]);
+            empresa.Id = Convert.ToInt32(reader["EMP_ID"]);
             empresa.Senha = reader["EMP_SENHA"].ToString();
             empresa.Email = reader["EMP_EMAIL"].ToString();
         }
